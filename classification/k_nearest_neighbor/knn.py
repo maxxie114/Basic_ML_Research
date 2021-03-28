@@ -1,6 +1,6 @@
 # Manual implementation of a KNN algorithm from codecademy
 # To predict a movie's rating
-from movies import movie_dataset, movie_labels, normalize_point
+from movies import training_set, training_labels, validation_set, validation_labels
 
 def distance(movie1, movie2):
   """euclidean distance implementation"""
@@ -44,3 +44,15 @@ my_movie = [350000, 132, 2017]
 normalized_my_movie = normalize_point(my_movie)
 # Prediction
 print(classify(normalized_my_movie, movie_dataset, movie_labels, 5))
+
+def find_validation_accuracy(training_set, training_labels, validation_set, validation_labels, k):
+  num_correct = 0.0
+  for i in validation_set:
+    guess = classify(validation_set[i], training_set, training_labels, k)
+    if guess == validation_labels[i]:
+      num_correct += 1
+  error = num_correct / len(validation_set)
+  return error
+
+result = find_validation_accuracy(training_set, training_labels, validation_set, validation_labels, 3)
+print(result)
