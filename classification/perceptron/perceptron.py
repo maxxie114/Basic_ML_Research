@@ -1,4 +1,5 @@
 # A self-coded perceptron (single-neuron neural net)
+import numpy as np
 class Perceptron:
   def __init__(self, num_inputs=3, weights=[1,1,1]):
     # num_inputs is the number of inputs that will be included in a list of data
@@ -13,13 +14,22 @@ class Perceptron:
       weighted_sum += self.weights[i]*inputs[i]
     return weighted_sum
 
-  def activation(self, weighted_sum):
-    """restrict the output data to either -1 or 1 and return"""
-    if weighted_sum >= 0:
-      return 1
-    if weighted_sum < 0:
-      return -1
+  def activation(self, z):
+    """Return a result between 1 and 0 using a sigmoid function"""
+    denominator = 1 + np.exp(-z)
+    result = 1/denominator
+    return result
 
+  def threshold(self, value):
+    """Return a classification threshold of either 0 or 1
+       we use 0.5 as a threshold here for ease of understanding
+    """
+    threshold = 0.5
+    if value >= threshold:
+        return 1
+    else:
+        return 0
+ 
   def training(self, training_set):
     """Train the neural network"""
     # Start foundline with False until the neural network is able to 
@@ -33,8 +43,11 @@ class Perceptron:
       for inputs in training_set:
         # Start with random weights 1,1,1
         # And uses simple multiplication and addition to get a weighted sum
-        # pass it through the activation function to get either a 1 or -1
-        prediction = self.activation(self.weighted_sum(inputs))
+        # pass it through the activation function to get either a 1 or 0
+        prediction_old = self.activation(self.weighted_sum(inputs))
+        # pass the prediction through the threshold to be get a value of 0 or 1
+        # for easy training
+        prediction = self.threshold(prediction_old)
         print(f"[Predicted]{prediction}")
         actual = training_set[inputs]
         print(f"[Actual]{actual}")
@@ -59,17 +72,23 @@ class Perceptron:
       iterations += 1
 
   def predict(self, testing_set):
-    """return a prediction with a given testing data"""
+    """return the prediction and confidence for a given testing data"""
     # Run prediction by multiply inputs with the weight and map it
     # Through the activation function
-    prediction = self.activation(self.weighted_sum(testing_set))
-    return prediction
+    final_prob = 0
+    probability = self.activation(self.weighted_sum(testing_set))
+    prediction = self.threshold(probability)
+    if prediction == 1:
+        final_prob = probability
+    else:
+        final_prob = 1 - probability
+    return [prediction, final_prob]
 
 if __name__ == '__main__':
     cool_perceptron = Perceptron()
     # Use the prediction result of (A - (B + C) > 0) to build the dataset
     # So that we can actually check the model
-    small_training_set = {(1,1,0):-1, (2,0,1):1, (3,2,0):1, (4,5,1):-1}
+    small_training_set = {(1,1,0):0, (2,0,1):1, (3,2,0):1, (4,5,1):0}
     cool_perceptron.training(small_training_set)
     
     # Testing the model
@@ -77,6 +96,6 @@ if __name__ == '__main__':
     print(f"Start Prediction, testing_set={testing_set}")
     expected = 1
     result = cool_perceptron.predict(testing_set)
-    print(f"result:{result}")
+    print(f"result:{result[0]}\tprobability:{result[1]}")
     print(f"expected:{expected}")
-    print(f"error={result-expected}")
+    print(f"error={result[0]-expected}")
