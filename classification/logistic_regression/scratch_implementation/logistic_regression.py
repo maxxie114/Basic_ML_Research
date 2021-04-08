@@ -7,9 +7,9 @@ import numpy as np
 from exam import hours_studied, passed_exam
 
 # For some reason np array that start with an int will only be an int
-coefficients = np.array([[0.999999]])
-intercept = np.array([0.723534215])
-learning_rate = 0.008
+coefficients = np.array([[1.1]])
+intercept = np.array([1.0])
+learning_rate = 0.0001
 
 def log_odds(features, coefficients, intercept):
   """Return the log odds for all the features"""
