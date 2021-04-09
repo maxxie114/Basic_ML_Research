@@ -83,11 +83,6 @@ if __name__ == '__main__':
 
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=1234)
 
-    def accuracy(y_pred, y_true):
-        """Calculate and return the accuracy of the model"""
-        accuracy = np.sum(y_true == y_pred) / len(y_true)
-        return accuracy
-
     model = LogisticRegression(lr=0.0001, epoch=1000)
     model.fit(X_train, y_train)
     predictions = model.predict(X_test)
