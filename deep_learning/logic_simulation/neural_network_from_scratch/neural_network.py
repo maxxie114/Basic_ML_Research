@@ -59,11 +59,13 @@ class NeuralNetwork:
     
     def train(self,a,b,c,actual):
         for i in range(self.epoch):
-            print(f"EPOCH={i}")
             for j in range(len(a)):
                 self.forward_prop(a[j],b[j],c[j])
                 self.back_prop(actual[j])
-                print(f"COST={self.__cost(actual[j],self.outn)}")
+                if i % 100 == 0:
+                    print("===============================")
+                    print(f"EPOCH={i}")
+                    print(f"COST={self.__cost(actual[j],self.outn)}")
 
     def __threshold_classification(self,predicted):
         if predicted > 0.5:
@@ -83,7 +85,7 @@ class NeuralNetwork:
            
 
 if __name__ == '__main__':
-    model = NeuralNetwork(epoch=1000,alpha=0.1)
+    model = NeuralNetwork(epoch=100000,alpha=0.01)
     
     # Create dataset
     # Use the prediction result of (A - (B + C) > 0) to build the dataset
@@ -104,3 +106,12 @@ if __name__ == '__main__':
     print(f"result:{result}\tprobabilities:{model.predict_proba(x_test[0],x_test[1],x_test[2])}")
     print(f"expected:{expected}")
     print(f"error={expected-result}")
+    
+    # testing the model
+    x_test2 = (10,9,2)
+    print(f"Start Prediction, testing_set={x_test2}")
+    expected2 = 0
+    result2 = model.predict(x_test2[0],x_test2[1],x_test2[2])
+    print(f"result:{result2}\tprobabilities:{model.predict_proba(x_test2[0],x_test2[1],x_test2[2])}")
+    print(f"expected:{expected2}")
+    print(f"error={expected2-result2}")
