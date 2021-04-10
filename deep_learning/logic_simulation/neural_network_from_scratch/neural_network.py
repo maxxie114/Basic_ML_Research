@@ -1,3 +1,5 @@
+# Neural Network Coded entirely from scratch without any third party libraries
+# Attention: This project only work with data sets that have three features
 import math
 class NeuralNetwork:
     # Ignore bias for easy implementation
@@ -62,15 +64,30 @@ class NeuralNetwork:
                 self.forward_prop(a[j],b[j],c[j])
                 self.back_prop(actual[j])
                 print(f"COST={self.__cost(actual[j],self.outn)}")
+
+    def __threshold_classification(self,predicted):
+        if predicted > 0.5:
+            return 1
+        else:
+            return 0
     
     def predict(self,a,b,c):
         self.forward_prop(a,b,c)
+        return self.__threshold_classification(self.outn)
+
+    def predict_proba(self,a,b,c):
+        self.forward_prop(a,b,c)
+        if self.outn < 0.5:
+            return 1 - self.outn
         return self.outn
+           
 
 if __name__ == '__main__':
     model = NeuralNetwork(epoch=1000,alpha=0.1)
     
     # Create dataset
+    # Use the prediction result of (A - (B + C) > 0) to build the dataset
+    # So that we can actually check the model
     # small_training_set = {(1,1,0):0, (2,0,1):1, (3,2,0):1, (4,5,1):0}
     a = [1,2,3,4]
     b = [1,0,2,5]
@@ -84,6 +101,6 @@ if __name__ == '__main__':
     print(f"Start Prediction, testing_set={x_test}")
     expected = 1
     result = model.predict(x_test[0],x_test[1],x_test[2])
-    print(f"result:{result}")
+    print(f"result:{result}\tprobabilities:{model.predict_proba(x_test[0],x_test[1],x_test[2])}")
     print(f"expected:{expected}")
     print(f"error={expected-result}")
