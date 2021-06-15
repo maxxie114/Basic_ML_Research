@@ -23,7 +23,7 @@ Perceptron *pc_create(uint32_t num_inputs, double initial_weight) {
         uint32_t weight = initial_weight;
         pc->weights = (double *)calloc(num_inputs, sizeof(double));
         // Initialize the weights
-        for (uint32_t i = 0; i < num_inputs; i++) {
+        for (uint32_t i = 0; i < pc->num_inputs; i++) {
             pc->weights[i] = weight;
         }
     }
