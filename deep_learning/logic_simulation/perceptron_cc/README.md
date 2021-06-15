@@ -1,4 +1,4 @@
-# Single-layer Percetron Algorithm
+# Single-layer Perceptron Algorithm
 - This is an implementation of the single-layer perceptron algorithm
 # Code style
 - This code follow the UCSC CSE13S Spring 2021 Coding Style that can be found [here](https://cdn-uploads.piazza.com/paste/hpyc1y44n3k4oo/ff1a264201988386be47c15f1d3d416a2c718ec223ec0485615b38457e5a799d/coding.pdf)
