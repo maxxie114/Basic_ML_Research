@@ -1,3 +1,6 @@
+//
+// Copyright © 2021 Max Xie, All rights reserved.
+//
 #include <stdio.h>
 #include <stdint.h>
 #include <stdbool.h>
