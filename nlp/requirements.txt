@@ -1,0 +1,6 @@
+tensorflow	            # Latest stable version as of 2023
+transformers	            # Latest compatible release for 2023
+numpy                       # Numpy for numerical operations
+spacy                       # Required if you are still utilizing SpaCy for preprocessing 
+matplotlib                  # For any potential plotting/debug visualization
+tf-keras
