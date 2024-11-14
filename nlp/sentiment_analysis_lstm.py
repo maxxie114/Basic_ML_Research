@@ -94,3 +94,6 @@ print(model.summary())
 loss, accuracy = model.evaluate(padded_test, y_test_subset)
 print(f'Loss: {loss}, Accuracy: {accuracy}')
 
+# After training the model, save the model weights
+model.save_weights('lstm_sentiment_model.weights.h5')
+print("Model weights saved.")
