@@ -4,6 +4,11 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Flatten
 from tensorflow.keras.utils import to_categorical
 
+# Enable GPU processing
+physical_devices = tf.config.experimental.list_physical_devices('GPU')
+if len(physical_devices) > 0:
+    tf.config.experimental.set_memory_growth(physical_devices[0], True)
+
 # Load and preprocess the MNIST dataset
 (x_train, y_train), (x_test, y_test) = mnist.load_data()
 x_train, x_test = x_train / 255.0, x_test / 255.0
@@ -25,7 +30,7 @@ model.compile(optimizer='adam',
               metrics=['accuracy'])
 
 # Train the model
-model.fit(x_train, y_train, epochs=5, batch_size=32, validation_split=0.1)
+model.fit(x_train, y_train, epochs=5, batch_size=128, validation_split=0.1)
 
 # Evaluate the model
 test_loss, test_acc = model.evaluate(x_test, y_test)
