@@ -7,6 +7,10 @@ config.yaml
 /secrets/
 /private_config/
 
+# Ignore logging files
+conversation.json
+*.log
+
 # Ignore general model weight files
 *.ckpt       # Common checkpoint format for various ML frameworks
 *.pt         # PyTorch models
