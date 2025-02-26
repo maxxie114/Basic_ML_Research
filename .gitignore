@@ -1,2 +1,25 @@
-# python
-/__pycache__/
+# Ignore specific configuration files that might contain sensitive information
+config.json
+config.yml
+config.yaml
+
+# Ignore directories for sensitive configurations (if applicable)
+/secrets/
+/private_config/
+
+# Ignore general model weight files
+*.ckpt       # Common checkpoint format for various ML frameworks
+*.pt         # PyTorch models
+*.pth        # PyTorch models
+*.bin        # Large binary files
+
+# TensorFlow & Keras weight and checkpoint file patterns
+*.h5         # Keras HDF5 model files
+*.hdf5       # Alternate HDF5 extension
+*.index      # TensorFlow checkpoint index files
+*.data-*     # TensorFlow checkpoint data files
+
+# Optionally ignore entire directories that might store large model files
+/saved_model/   # TensorFlow saved models directory (if using model.save('saved_model'))
+/checkpoints/   # Common directory for storing checkpoints
+/models/
