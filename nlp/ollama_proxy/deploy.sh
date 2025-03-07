@@ -16,8 +16,9 @@ error() {
 
 # 1. Update and install necessary system packages
 status "Updating system packages and installing dependencies..."
-sudo apt-get update
-sudo apt-get install -y python3 python3-pip python3-venv jq screen curl
+export DEBIAN_FRONTEND=noninteractive
+sudo -E apt-get update -qq
+sudo -E apt-get install -y -qq python3 python3-pip python3-venv jq screen curl
 
 # 2. Install Ollama
 status "Installing Ollama..."
