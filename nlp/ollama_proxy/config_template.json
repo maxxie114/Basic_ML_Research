@@ -1,0 +1,6 @@
+{
+  "api_key": "your_secure_api_key",
+  "log_file": "proxy.log",
+  "ollama_base_url": "http://localhost:11434"
+}
+
