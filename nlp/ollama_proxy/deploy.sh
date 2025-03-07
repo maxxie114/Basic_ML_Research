@@ -29,12 +29,7 @@ else
     status "Ollama is already installed."
 fi
 
-# 3. Install deepseek-r1:70b model
-status "Installing deepseek-r1:70b model..."
-ollama pull deepseek-r1:70b
-status "Model deepseek-r1:70b installed successfully."
-
-# 4. Start Ollama server
+# 3. Start Ollama server
 status "Starting Ollama server..."
 if pgrep -x "ollama" > /dev/null; then
     status "Ollama server is already running."
@@ -43,10 +38,22 @@ else
     status "Ollama server started successfully."
 fi
 
+# 4. Wait for Ollama server to be active
+status "Waiting for Ollama server to be active..."
+while ! ollama list &> /dev/null; do
+    sleep 1
+done
+status "Ollama server is active."
+
+# 5. Install deepseek-r1:70b model
+status "Installing deepseek-r1:70b model..."
+ollama pull deepseek-r1:70b
+status "Model deepseek-r1:70b installed successfully."
+
 # First copy the config json template file as config.json
 cp config_template.json config.json
 
-# 5. Generate a new API key and update config.json
+# 6. Generate a new API key and update config.json
 status "Generating a new API key..."
 NEW_API_KEY=$(head -c 32 /dev/urandom | sha256sum | awk '{print $1}')
 CONFIG_FILE="config.json"
@@ -58,7 +65,7 @@ else
     error "config.json file not found."
 fi
 
-# 6. Set up Python virtual environment and install dependencies
+# 7. Set up Python virtual environment and install dependencies
 status "Setting up Python virtual environment and installing dependencies..."
 python3 -m venv venv
 source venv/bin/activate
@@ -71,7 +78,7 @@ else
 fi
 deactivate
 
-# 7. Run proxyserver_v4.py in a screen session
+# 8. Run proxyserver_v4.py in a screen session
 status "Starting proxyserver_v4.py in a screen session..."
 SCREEN_NAME="proxy_server"
 PROXY_SCRIPT="proxyserver_v4.py"
