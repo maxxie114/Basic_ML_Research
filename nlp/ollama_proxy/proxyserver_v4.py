@@ -2,30 +2,33 @@ import flask
 import requests
 import logging
 import sys
+import json
+import os
 from flask import Response, stream_with_context, request, jsonify
 
-# Configure logging to both console and file
-log_file = "proxy.log"
+# Load configuration from config.json
+config_path = os.path.join(os.path.dirname(__file__), 'config.json')
+with open(config_path, 'r') as config_file:
+    config = json.load(config_file)
 
+# Access configurations
+API_KEY = config.get('api_key')
+LOG_FILE = config.get('log_file', 'proxy.log')
+OLLAMA_BASE_URL = config.get('ollama_base_url', 'http://localhost:11434')
+OLLAMA_CHAT_URL = f'{OLLAMA_BASE_URL}/api/chat'
+OLLAMA_TAGS_URL = f'{OLLAMA_BASE_URL}/api/tags'
+
+# Configure logging to both console and file
 logging.basicConfig(
     level=logging.DEBUG,
     format='[%(asctime)s] %(levelname)s: %(message)s',
     handlers=[
         logging.StreamHandler(sys.stdout),  # Logs to console
-        logging.FileHandler(log_file, mode='a', encoding='utf-8')  # Logs to file
+        logging.FileHandler(LOG_FILE, mode='a', encoding='utf-8')  # Logs to file
     ]
 )
 
 app = flask.Flask(__name__)
-
-# API Key for security
-API_KEY = 'c852148fa0f83063009c0b6c46e8bd2c65cfecba02076325c99f043eb6cf912c'
-
-# Ollama API endpoints
-OLLAMA_BASE_URL = 'http://localhost:11434'
-OLLAMA_CHAT_URL = f'{OLLAMA_BASE_URL}/api/chat'
-OLLAMA_GENERATE_URL = f'{OLLAMA_BASE_URL}/v1/generate'
-OLLAMA_TAGS_URL = f'{OLLAMA_BASE_URL}/api/tags'
 
 def validate_api_key():
     """Validate API Key from request headers."""
@@ -41,7 +44,6 @@ def log_request_info():
     logging.info(f'Received {request.method} request to {request.url}')
     logging.debug(f'Request Headers: {dict(request.headers)}')
 
-    # ✅ FIXED: Use get_json() instead of get_data() to avoid consuming the request body
     try:
         json_body = request.get_json(silent=True)
         if json_body:
@@ -54,10 +56,8 @@ def forward_request(url, method, data=None):
     try:
         headers = {'Content-Type': 'application/json'}
         response = requests.request(method, url, json=data, headers=headers, stream=True)
-
         response.raise_for_status()
 
-        # ✅ Log response metadata BEFORE returning, so no need for @after_request
         logging.info(f'Forwarding request to {url} - Response Status: {response.status_code}')
         logging.debug(f'Response Headers: {response.headers}')
 
@@ -67,8 +67,8 @@ def forward_request(url, method, data=None):
                     try:
                         json_data = line.decode('utf-8')
                         log_message = f"STREAMING: {json_data}"
-                        print(log_message, flush=True)  # 🔥 Immediate log output
-                        logging.info(log_message)  # 🔥 Log to file
+                        print(log_message, flush=True)
+                        logging.info(log_message)
                         yield json_data + "\n"
                     except Exception as e:
                         error_message = f"Error processing stream: {e}"
@@ -80,6 +80,12 @@ def forward_request(url, method, data=None):
     except requests.exceptions.RequestException as e:
         logging.error(f"Error forwarding request to {url}: {e}", exc_info=True)
         return jsonify({'error': 'Bad Gateway', 'message': str(e)}), 502
+
+# Define proxy routes
+@app.route('/proxy', methods=['GET'])
+def proxy_root():
+    """Optional: Handles direct access to /proxy."""
+    return jsonify({'message': 'Proxy root endpoint'})
 
 @app.route('/proxy/api/chat', methods=['POST'])
 def proxy_chat():

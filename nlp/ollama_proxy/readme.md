@@ -174,3 +174,8 @@ This solution provides **real-time streaming** while **keeping API requests secu
 - proxyserver_v2.py: second version of the proxy server, but streaming failed due to the logger
 - proxyserver_v3.py: fully functional proxy server, with streaming, and logging
 - proxyserver_v4.py: fully functional proxy server, with streaming, logging, and file logging
+
+
+**ollama issues**
+- an error was encountered while running the model: unexpected EOF
+    - This issue happend with deepseek-r1:671B model running on a 8xA100 server, the cause seems to be the num_ctx and num_predict, setting them to 8192，4096 seems to have fixed the issue
