@@ -42,6 +42,9 @@ else
     status "Ollama server started successfully."
 fi
 
+# First copy the config json template file as config.json
+cp config_template.json config.json
+
 # 5. Generate a new API key and update config.json
 status "Generating a new API key..."
 NEW_API_KEY=$(head -c 32 /dev/urandom | sha256sum | awk '{print $1}')
