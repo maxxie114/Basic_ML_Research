@@ -1,0 +1,132 @@
+Given the following conversation, relevant context, and a follow up question, reply with an answer to the current question the user is asking. Return only your response to the question given the above information following the users instructions as needed.
+Context:
+[CONTEXT 0]:
+<document_metadata>
+sourceDocument: qubemc.com_.html
+published: 2/28/2025, 7:50:11 PM
+source: https://qubemc.com
+</document_metadata>
+
+QubeMC
+HOME
+ABOUT US
+PRICING
+SERVICES
+BLOGS
+CONTACT
+STORE
+
+WELCOME TO QUBEMC NETWORK
+
+
+
+A place for Minecraft gamers to spend their times.
+
+Contact Us
+About Us
+
+
+
+QubeMC LLC is a versatile technology company specializing in affordable and reliable Minecraft server hosting for java and bedrock editions. We operate various Minecraft servers and offer comprehensive services in website hosting, design, and software development, specifically in Minecraft plugin development. With a keen focus on customer satisfaction and innovation, QubeMC is your go-to for all Minecraft and web solution needs.
+
+
+
+
+Our Services
+
+Here are a list of services that we offer.
+
+Minecraft Bedrock Server Hosting
+
+QubeMC Hosting provide you with unparalleled hosting services tailored specifically for Bedrock Edition. With our top-of-the-line infrastructure and commitment to delivering a seamless gaming experience, we offer the best Minecraft Bedrock hosting services available in the industry.
+[END CONTEXT 0]
+
+[CONTEXT 1]:
+<document_metadata>
+sourceDocument: qubemc.com_.html
+published: 2/28/2025, 7:50:11 PM
+source: https://qubemc.com
+</document_metadata>
+
+More Info
+Minecraft Java Server Hosting
+
+QubeMC Hosting offers top-tier bedrock minecraft server hosting solutions designed to provide you with unparalleled performance and an exceptional gaming experience.
+
+More Info
+Minecraft Hosting
+
+Our Minecraft Hosting service offer cheap and reliable Minecraft server hosting where you will have full control over the server console, and file system of the server!
+
+More Info
+Web Hosting
+
+Our web hosting service is under maintenance, please stay tune for more info!
+
+More Info
+Our Minecraft Servers
+
+Here are some snippets from our Minecraft Server Network.
+
+Previous
+Next
+Our Hosting Service
+
+Here are some information on our hosting services.
+
+Website Hosting
+
+Our web hosting service is under maintenance, please stay tuned for more info!
+
+
+
+More Info
+Minecraft Bedrock Server Hosting
+[END CONTEXT 1]
+
+[CONTEXT 2]:
+<document_metadata>
+sourceDocument: qubemc.com_.html
+published: 2/28/2025, 7:50:11 PM
+source: https://qubemc.com
+</document_metadata>
+
+Our Minecraft Bedrock hosting service offer server hosting with PocketMine-MP, Nukkitx, and Bedrock Dedicated Server. You will have full control over the server console, and the file system of the server.
+
+More Info
+Minecraft Java Server Hosting
+
+Our Minecraft Java hosting service offer server hosting with Spigot, and Paper Spigot. You will have full control over the server console, and the file system of the server.
+
+
+
+More Info
+Get Started
+Home
+Company Information
+Contact us
+Pricing
+Store
+Hosting Portal
+Contents
+Minecraft Java Server Hosting
+Minecraft Bedrock Server Hosting
+Minecraft Hosting Service
+Website Hosting
+Why QubeMC Hosting
+Best Minecraft Server Hosting
+Legal
+Terms of Service
+Privacy Policy
+Cookie Policy
+QUBEMC
+
+2326 Moraga St,
+San Francisco, CA 94122
+
+(415) 364-8613
+
+© 2023 QUBEMC LLC, All Rights Reserved.
+[END CONTEXT 2]
+
+

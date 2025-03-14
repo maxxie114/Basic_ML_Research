@@ -1,0 +1,53 @@
+@agent search for today's news
+[
+  {
+    "title": "Breaking News, Latest News and Videos | CNN",
+    "link": "//duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.cnn.com%2F&amp;rut=96cd25fd922c5ad6d4c4753699d0ff6aeb19f2252936b6fb2d2ed579d7619bf5",
+    "snippet": "View the latest news and breaking news today for U.S., world, weather, entertainment, politics and health at CNN.com."
+  },
+  {
+    "title": "Fox News - Breaking News Updates | Latest News Headlines | Photos ...",
+    "link": "//duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.foxnews.com%2F&amp;rut=61a95cf4b0738ec600d98e1fdb0429483dd5d61280a4b071d16be985dca8b398",
+    "snippet": "Fox News provides breaking news, video, and current events coverage on U.S., world, entertainment, health, business, technology, politics, and sports."
+  },
+  {
+    "title": "Associated Press News: Breaking News, Latest Headlines and Videos | AP News",
+    "link": "//duckduckgo.com/l/?uddg=https%3A%2F%2Fapnews.com%2F&amp;rut=edb162a961223aad794e3be71447b1a954d6190ada486a1a71a8170b611b19b9",
+    "snippet": "The Associated Press is an independent global news organization dedicated to factual reporting. Founded in 1846, AP today remains the most trusted source of fast, accurate, unbiased news in all formats and the essential provider of the technology and services vital to the news business."
+  },
+  {
+    "title": "NBC News - Breaking News &amp; Top Stories - Latest World, US &amp; Local News",
+    "link": "//duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.nbcnews.com%2F&amp;rut=ece2e04aaadd5b5ca9d03cf09ead193d3040bc5cd80ac2ee8c1987272ce0261e",
+    "snippet": "Go to NBCNews.com for breaking news, videos, and the latest top stories in world news, business, politics, health and pop culture."
+  },
+  {
+    "title": "Google News - Headlines",
+    "link": "//duckduckgo.com/l/?uddg=https%3A%2F%2Fnews.google.com%2Ftopics%2FCAAqJggKIiBDQkFTRWdvSUwyMHZNRFZxYUdjU0FtVnVHZ0pWVXlnQVAB&amp;rut=3ccc33977f842a52bc1f7a3742860d67b75171ee895531b311b0ef5a5f66e2da",
+    "snippet": "Browse the latest news headlines from various categories and find out what&#x27;s happening around the world with Google News."
+  },
+  {
+    "title": "ABC News - Breaking News, Latest News and Videos",
+    "link": "//duckduckgo.com/l/?uddg=https%3A%2F%2Fabcnews.go.com%2F&amp;rut=06c90135ca261a595bdccc3c43bb13c02995270987ae602d6696d62716d58272",
+    "snippet": "Your trusted source for breaking news, analysis, exclusive interviews, headlines, and videos at ABCNews.com"
+  },
+  {
+    "title": "CBS News | Breaking news, top stories &amp; today&#x27;s latest headlines",
+    "link": "//duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.cbsnews.com%2F&amp;rut=65425eaad828b8acf5ff3659925982292d3b3b943353c4a78a4fb1d364762fd2",
+    "snippet": "CBS News offers breaking news coverage of today&#x27;s top headlines. Stay informed on the biggest new stories with our balanced, trustworthy reporting."
+  },
+  {
+    "title": "News: U.S. and World News Headlines : NPR",
+    "link": "//duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.npr.org%2Fsections%2Fnews%2F&amp;rut=45614365a7eb5335639bff5234c10dd0481671c1b126d01dbc3001e203bbf87c",
+    "snippet": "NPR news, audio, and podcasts. Coverage of breaking stories, national and world news, politics, business, science, technology, and extended coverage of major national and world events."
+  },
+  {
+    "title": "The New York Times - Breaking News, US News, World News and Videos",
+    "link": "//duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.nytimes.com%2F&amp;rut=1d38083609a350e11fb09f6dcd19e81ba8d1da27adda113701e54f158c7aec53",
+    "snippet": "Live news, investigations, opinion, photos and video by the journalists of The New York Times from more than 150 countries around the world. Subscribe for coverage of U.S. and international news ..."
+  },
+  {
+    "title": "Google News - Headlines",
+    "link": "//duckduckgo.com/l/?uddg=https%3A%2F%2Fnews.google.com%2Ftopics%2FCAAqJggKIiBDQkFTRWdvSUwyMHZNRFZxYUdjU0FtUmxHZ0pFUlNnQVAB&amp;rut=49e230f571c71a23c170f7ff25de5ab810694899469b77471b2ad98324918fbe",
+    "snippet": "Google News provides breaking news headlines and personalized stories based on your interests."
+  }
+]
