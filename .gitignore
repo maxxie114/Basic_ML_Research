@@ -2,6 +2,7 @@
 config.json
 config.yml
 config.yaml
+.env
 
 # Ignore directories for sensitive configurations (if applicable)
 /secrets/
